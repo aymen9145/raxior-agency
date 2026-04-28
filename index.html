@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RAXIOR | Digital Engineering Studio</title>
+  <meta name="description" content="RAXIOR is a digital product studio building future-ready web systems, UI/UX design, business automation, and AI-powered solutions."/>
+  <meta property="og:title" content="RAXIOR | Digital Engineering Studio"/>
+  <meta property="og:description" content="We build the digital infrastructure of tomorrow. Web Development, UI/UX Design, Business Automation, AI Agents."/>
+  <meta property="og:type" content="website"/>
+  <meta name="theme-color" content="#6DBF3E"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="#" class="header-brand">
+      <img src="assets/images/logo.png" alt="RAXIOR Logo"/>
+      <span>RAXIOR</span>
+    </a>
+    <nav class="header-nav">
+      <a href="#services" class="active">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="#services">Services</a>
+  <a href="#work">Work</a>
+  <a href="#process">Process</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <canvas id="hero-particles" style="position:absolute;inset:0;z-index:1;pointer-events:none;"></canvas>
+  <div class="hero-mesh grid-mesh" style="position:absolute;inset:0;"></div>
+  <div class="hero-glow" id="hero-glow"></div>
+  <div class="hero-watermark">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnKxjcbaFvpq9sWtnoceaOoUyFvCWk784Mrlv-uqY9cbfKGSIJzLaWDNkAMtRJhPhVzO3ZQ2-Ue5BK0Fe9n6ZUC2ti4BmSkYN-lS6zOm84sxDx_R0HoqYybY1K2LaRWpk6jvlxiZ_AeoA32g0WfHj9FG14_v_BayydHvE9A0sTyQoJDt8GabeO4pNhcgktyXCFJJmHG8qUgLSjRjVlGDhEUnC_OzfCdGdMiKyxdNBZSsdojGY9oYfprLiLnRVze11bWp-lYtqN9bHx" alt="Brand watermark"/>
+  </div>
+  <div class="hero-content">
+    <div class="hero-chip reveal">
+      <span class="dot"></span>
+      <span class="text-label-mono tracking-wide">Future-Ready Systems</span>
+    </div>
+    <h1 class="text-hero-display reveal delay-1">
+      We Build the Digital <span class="text-primary italic">Infrastructure</span> of Tomorrow.
+    </h1>
+    <p class="subtitle text-body-lg text-muted reveal delay-2">
+      Web Development · UI/UX Design · Business Automation · AI Agents
+    </p>
+    <div class="hero-buttons reveal delay-3">
+      <a href="#contact" class="btn btn-primary">Let's Talk</a>
+      <a href="#work" class="btn btn-secondary">Explore Our Work</a>
+    </div>
+    <div class="hero-stats reveal delay-4">
+      <div class="stat-card">
+        <div class="stat-value" data-target="120+">0</div>
+        <div class="stat-label text-label-mono">Projects Delivered</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" data-target="98%">0</div>
+        <div class="stat-label text-label-mono">Client Retention</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" data-target="24/7">0</div>
+        <div class="stat-label text-label-mono">Systems Support</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>WEB DEVELOPMENT · UI/UX DESIGN · BUSINESS AUTOMATION · AI AGENTS · DIGITAL STRATEGY · CUSTOM SOFTWARE · RAXIOR ★</span>
+    <span>WEB DEVELOPMENT · UI/UX DESIGN · BUSINESS AUTOMATION · AI AGENTS · DIGITAL STRATEGY · CUSTOM SOFTWARE · RAXIOR ★</span>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="text-label-mono text-primary about-label tracking-wide reveal">The Studio</span>
+        <h2 class="text-headline-xl reveal delay-1">
+          We don't just build — we <span class="text-primary">engineer</span> growth.
+        </h2>
+        <p class="text-body-lg reveal delay-2">
+          Based at the intersection of high-end aesthetics and technical precision, RAXIOR is a digital product studio that scales brands through superior engineering. We treat every pixel like a line of code, ensuring that performance is never sacrificed for beauty.
+        </p>
+        <div class="about-badge reveal delay-3">
+          <div class="icon-circle">
+            <span class="material-symbols-outlined">rocket_launch</span>
+          </div>
+          <span class="text-label-mono text-white tracking-wide">Innovation First Approach</span>
+        </div>
+      </div>
+      <div class="about-image-wrap reveal-scale delay-2">
+        <div class="about-image-glow"></div>
+        <div class="about-image-card">
+          <img src="assets/images/digital-globe.png" alt="Futuristic 3D digital globe with neon green neural network lines"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section section-dark" id="services">
+  <div class="container">
+    <div class="services-header">
+      <h2 class="text-headline-lg reveal">Core Competencies</h2>
+      <div class="accent-bar reveal delay-1"></div>
+    </div>
+    <div class="services-grid">
+      <!-- Card 1 -->
+      <div class="service-card reveal delay-1">
+        <div class="service-card-top">
+          <span class="material-symbols-outlined">terminal</span>
+          <span class="card-number">01</span>
+        </div>
+        <h3>Web Engineering</h3>
+        <p>Performance-obsessed full-stack development using Next.js, React, and serverless architectures.</p>
+        <ul>
+          <li>+ Headless Commerce</li>
+          <li>+ Web3 Integration</li>
+          <li>+ Real-time Dashboards</li>
+        </ul>
+      </div>
+      <!-- Card 2 -->
+      <div class="service-card reveal delay-2">
+        <div class="service-card-top">
+          <span class="material-symbols-outlined">token</span>
+          <span class="card-number">02</span>
+        </div>
+        <h3>UI/UX Strategy</h3>
+        <p>User-centric interfaces that blend cinematic aesthetics with conversion-focused UX patterns.</p>
+        <ul>
+          <li>+ Design Systems</li>
+          <li>+ Interactive Prototyping</li>
+          <li>+ Motion Design</li>
+        </ul>
+      </div>
+      <!-- Card 3 -->
+      <div class="service-card reveal delay-1">
+        <div class="service-card-top">
+          <span class="material-symbols-outlined">automation</span>
+          <span class="card-number">03</span>
+        </div>
+        <h3>Automation</h3>
+        <p>Eliminating friction through custom internal tools and streamlined business logic automation.</p>
+        <ul>
+          <li>+ CRM Integration</li>
+          <li>+ Pipeline Automation</li>
+          <li>+ Cloud Infrastructure</li>
+        </ul>
+      </div>
+      <!-- Card 4 -->
+      <div class="service-card reveal delay-2">
+        <div class="service-card-top">
+          <span class="material-symbols-outlined">neurology</span>
+          <span class="card-number">04</span>
+        </div>
+        <h3>AI Implementation</h3>
+        <p>Deploying advanced LLM-powered agents and custom machine learning models into your workflow.</p>
+        <ul>
+          <li>+ Custom GPT Agents</li>
+          <li>+ Vector Databases</li>
+          <li>+ Sentiment Analysis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="process-header">
+      <h2 class="text-headline-lg reveal">Our Delivery Protocol</h2>
+    </div>
+    <div class="process-timeline">
+      <div class="process-line"></div>
+      <div class="process-step reveal delay-1">
+        <div class="step-circle active">01</div>
+        <h4>Discovery</h4>
+        <p>Deep dive into goals and technical constraints.</p>
+      </div>
+      <div class="process-step reveal delay-2">
+        <div class="step-circle inactive">02</div>
+        <h4>Strategy</h4>
+        <p>Architecting the solution and design systems.</p>
+      </div>
+      <div class="process-step reveal delay-3">
+        <div class="step-circle inactive">03</div>
+        <h4>Build</h4>
+        <p>Agile engineering sprints and UI integration.</p>
+      </div>
+      <div class="process-step reveal delay-4">
+        <div class="step-circle inactive">04</div>
+        <h4>Launch</h4>
+        <p>Deployment, QA, and post-launch optimization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK / PORTFOLIO ============ -->
+<section class="section section-black" id="work">
+  <div class="container">
+    <div class="work-header">
+      <div>
+        <span class="text-label-mono text-primary tracking-wide reveal" style="display:block;margin-bottom:16px;">Portfolio</span>
+        <h2 class="text-headline-lg reveal delay-1">Selected Works</h2>
+      </div>
+      <a href="#" class="reveal delay-2">View All Projects</a>
+    </div>
+    <div class="work-grid">
+      <div class="work-item reveal delay-1">
+        <div class="work-thumb">
+          <img src="assets/images/project-fintech.png" alt="Lumina Financial Dashboard"/>
+          <div class="work-thumb-overlay"></div>
+        </div>
+        <div class="work-info">
+          <div>
+            <h3>Lumina Financial</h3>
+            <p>Fintech · Dashboard · Next.js</p>
+          </div>
+          <span class="material-symbols-outlined">north_east</span>
+        </div>
+      </div>
+      <div class="work-item reveal delay-2">
+        <div class="work-thumb">
+          <img src="assets/images/project-smarthome.png" alt="Aether OS Smart Home App"/>
+          <div class="work-thumb-overlay"></div>
+        </div>
+        <div class="work-info">
+          <div>
+            <h3>Aether OS</h3>
+            <p>UI/UX · Smart Home · Mobile</p>
+          </div>
+          <span class="material-symbols-outlined">north_east</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section section-dark" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <h2 class="text-headline-lg reveal">Validation</h2>
+    </div>
+    <div class="testimonials-scroll">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card reveal delay-1">
+        <div class="testimonial-stars">
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+        </div>
+        <blockquote>"The technical precision RAXIOR brought to our infrastructure was unmatched. They transformed our legacy system into a high-speed machine."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="assets/images/avatar-marcus.png" alt="Marcus Thorne"/>
+          </div>
+          <div>
+            <div class="name">Marcus Thorne</div>
+            <div class="role">CTO, Nexus Corp</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card reveal delay-2">
+        <div class="testimonial-stars">
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+        </div>
+        <blockquote>"Design that actually works. We saw a 40% increase in user engagement within the first month of the redesign."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVAPhmShtHN8b17mYGxRkzO7ooj9rKtmSoCXbY7b3DigUQKp1qk9ZNSOGDu39TFDZs9hwOF2Od76V50EC1j9_VL2K1sP6spbL5XG2UeXFdjOSO1TpTsYTSglXrzIFqfwTqYTRaJvxqIbuAgIn5VQzrdcEneCxMveVq7Pu7Kcgle7vW9MO6HVFY-vVHpa6EFOjZnAZJek1Az-BfkVkA5zBGiH1z-Z3-MZFiBdQTilXEImfatsaaLHdih6U6tzDgn_kWGemnAJOpi9Z-" alt="Elena Vance"/>
+          </div>
+          <div>
+            <div class="name">Elena Vance</div>
+            <div class="role">Founder, Studio Void</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card reveal delay-3">
+        <div class="testimonial-stars">
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+        </div>
+        <blockquote>"RAXIOR didn't just build a product — they built an ecosystem. The AI automation alone saved us 200+ hours per month."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:rgba(135,220,87,0.2);display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="color:var(--primary);">person</span>
+          </div>
+          <div>
+            <div class="name">James Okoro</div>
+            <div class="role">CEO, Verdant AI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECH STACK ============ -->
+<section class="tech-stack">
+  <div class="container">
+    <p class="text-label-mono tracking-wide tech-stack-label reveal">Engineering Stack</p>
+    <div class="tech-stack-logos reveal delay-1">
+      <span>React</span>
+      <span>Next.js</span>
+      <span>OpenAI</span>
+      <span>PostgreSQL</span>
+      <span>Tailwind</span>
+      <span>Vercel</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-mesh grid-mesh" style="position:absolute;inset:0;"></div>
+  <div class="cta-watermark">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtvM13I7uLrlPlIzRq1Buy4tmSFucAZMZnY8BAcWdXqmq9V1Qt8ft8IttkgCxR8cjFeHjMfBY5SXPyyWkXE-Kn6gAA47DP07RcQMVCqUiIZ9zGo_9DIiTx6RJzVZoEeuYD_a3aFXKSYwo2KjAqC1lIcF3B3wQs5LWlyWg6crYOiyeJYOyPul4tZwsFGapPEpk1RpyS_GfKi9TTjMbeHUnta4GhHN9Ynf0QtYSH3PrhyMZX1l___lqYWLRVVhwMzpCBHLDqojfdWpYs" alt="Background brand element"/>
+  </div>
+  <div class="cta-content">
+    <h2 class="text-headline-xl reveal">Ready to build something <span class="text-primary italic">great?</span></h2>
+    <p class="text-body-lg text-muted reveal delay-1">Join the elite brands scaling through RAXIOR's digital engineering.</p>
+    <a href="#contact" class="btn btn-primary reveal delay-2">Initiate Project</a>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="text-label-mono text-primary tracking-wide reveal" style="display:block;margin-bottom:16px;">Get in Touch</span>
+        <h2 class="text-headline-lg reveal delay-1">Let's build your next project.</h2>
+        <p class="text-body-lg text-muted reveal delay-2">
+          Whether you need a full digital product, an AI-powered solution, or a brand-new website — we're ready to engineer it.
+        </p>
+        <div class="contact-detail reveal delay-3">
+          <span class="material-symbols-outlined">mail</span>
+          <span>hello@raxior.com</span>
+        </div>
+        <div class="contact-detail reveal delay-3">
+          <span class="material-symbols-outlined">location_on</span>
+          <span>Remote-First · Global</span>
+        </div>
+        <div class="contact-detail reveal delay-3">
+          <span class="material-symbols-outlined">schedule</span>
+          <span>Response within 24 hours</span>
+        </div>
+      </div>
+      <div class="reveal-right delay-2">
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="contact-name">Your Name</label>
+            <input type="text" id="contact-name" placeholder="John Doe" autocomplete="name"/>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" placeholder="john@company.com" autocomplete="email"/>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Your Message</label>
+            <textarea id="contact-message" placeholder="Tell us about your project..."></textarea>
+            <span class="form-error"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message</button>
+        </form>
+        <div class="form-success" id="form-success">
+          ✓ Message sent successfully! We'll get back to you within 24 hours.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/images/logo.png" alt="RAXIOR Logo"/>
+          <span>RAXIOR</span>
+        </div>
+        <p class="footer-desc">
+          Evolving digital realities through precision engineering and cinematic design.
+        </p>
+      </div>
+      <div>
+        <h5 class="footer-heading">Navigation</h5>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="footer-heading">Legal</h5>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="footer-heading">Social</h5>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Website">
+            <span class="material-symbols-outlined" style="font-size:18px;">public</span>
+          </a>
+          <a href="#" class="social-link" aria-label="Email">
+            <span class="material-symbols-outlined" style="font-size:18px;">alternate_email</span>
+          </a>
+          <a href="#" class="social-link" aria-label="Team">
+            <span class="material-symbols-outlined" style="font-size:18px;">groups</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copyright">© 2025 RAXIOR. Evolving Digital Realities.</span>
+      <div class="footer-taglines">
+        <span>Designed for Performance</span>
+        <span>Built for Scale</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

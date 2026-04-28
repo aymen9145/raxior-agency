@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAXIOR | Digital Engineering Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#31362c",
+                        "on-primary": "#143800",
+                        "inverse-primary": "#2c6c00",
+                        "surface-container-high": "#262c22",
+                        "primary-fixed": "#a2f970",
+                        "surface-container-lowest": "#0b1007",
+                        "inverse-on-surface": "#2d3228",
+                        "secondary-container": "#474747",
+                        "inverse-surface": "#dfe4d6",
+                        "outline-variant": "#404a39",
+                        "on-surface": "#dfe4d6",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#b6b5b4",
+                        "surface-container-highest": "#31362c",
+                        "surface-tint": "#87db57",
+                        "on-tertiary-fixed": "#3d0025",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#79124f",
+                        "on-secondary": "#303030",
+                        "secondary-fixed": "#e4e2e1",
+                        "surface-container": "#1c2118",
+                        "on-secondary-fixed-variant": "#474747",
+                        "tertiary-container": "#ff82bf",
+                        "on-surface-variant": "#c0cab4",
+                        "primary-fixed-dim": "#87db57",
+                        "surface-bright": "#353b30",
+                        "on-tertiary-fixed-variant": "#821b57",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#63003e",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "outline": "#8a9480",
+                        "tertiary": "#ffb0d2",
+                        "tertiary-fixed-dim": "#ffafd2",
+                        "secondary": "#c8c6c6",
+                        "primary": "#87dc57",
+                        "background": "#10150c",
+                        "on-primary-fixed-variant": "#205100",
+                        "surface-container-low": "#181d14",
+                        "surface-dim": "#10150c",
+                        "surface": "#10150c",
+                        "primary-container": "#6dbf3e",
+                        "on-primary-container": "#1c4900",
+                        "tertiary-fixed": "#ffd8e6",
+                        "on-primary-fixed": "#082100",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "on-background": "#dfe4d6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Space Grotesk"],
+                        "body-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "hero-display": ["Space Grotesk"],
+                        "label-mono": ["Space Grotesk"],
+                        "body-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "hero-display": ["96px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0A0A0A; }
+        .grid-mesh {
+            background-image: linear-gradient(#3A3A3A 1px, transparent 1px), linear-gradient(90deg, #3A3A3A 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.05;
+        }
+        .glow-lime {
+            box-shadow: 0 0 20px 0 rgba(109, 191, 62, 0.3);
+        }
+        .marquee {
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/5 dark:bg-black/60 backdrop-blur-2xl border-b border-slate-200 dark:border-zinc-800/50">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
+<div class="flex items-center gap-2">
+<img alt="RAXIOR Logo" class="h-8 w-auto" data-alt="high-tech minimalist logo of RAXIOR with sharp geometric lines and a futuristic aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuI-IeWWq6F9NHtFq6BW2wDMa6YjFkpVoKNtaHTDRvSC4c13V9WWig2ZntfjfDvC2pTsOdxPBMqfBLOPpgY2jCmLgoHbN80JeHPsGb5ylF5vGgmzEFx9mUG_2LkBeDeQQrXyZ0-1mwQq-Ui4-1eUEBTNsYtFuUbvSt8UAs5I21fTzxXEE0fDzjRCbyWxwTrhTCYzQVGUlwTkCxCqSpdbmBG1PSFFA0dPAqQE-IZORWeJ0h7JmKF_7XNbEgVDbWoIwmW0JsdnmhzlZ5"/>
+<span class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white">RAXIOR</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs font-bold text-lime-600 dark:text-lime-400 border-b-2 border-lime-500 pb-1" href="#">Services</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs font-bold text-slate-600 dark:text-zinc-400 hover:text-lime-500 dark:hover:text-lime-300 transition-all duration-300" href="#">Work</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs font-bold text-slate-600 dark:text-zinc-400 hover:text-lime-500 dark:hover:text-lime-300 transition-all duration-300" href="#">Process</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs font-bold text-slate-600 dark:text-zinc-400 hover:text-lime-500 dark:hover:text-lime-300 transition-all duration-300" href="#">About</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-label-mono text-label-mono uppercase tracking-widest font-bold glow-lime active:scale-95 transition-transform duration-200">
+                Get in Touch
+            </button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+<div class="absolute inset-0 grid-mesh"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] opacity-20"></div>
+<!-- Watermark -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02]">
+<img class="w-[80%] h-auto grayscale" data-alt="faded architectural background texture using brand logo silhouette for a cinematic layered effect" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnKxjcbaFvpq9sWtnoceaOoUyFvCWk784Mrlv-uqY9cbfKGSIJzLaWDNkAMtRJhPhVzO3ZQ2-Ue5BK0Fe9n6ZUC2ti4BmSkYN-lS6zOm84sxDx_R0HoqYybY1K2LaRWpk6jvlxiZ_AeoA32g0WfHj9FG14_v_BayydHvE9A0sTyQoJDt8GabeO4pNhcgktyXCFJJmHG8qUgLSjRjVlGDhEUnC_OzfCdGdMiKyxdNBZSsdojGY9oYfprLiLnRVze11bWp-lYtqN9bHx"/>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-mono font-label-mono uppercase tracking-[0.2em]">Future-Ready Systems</span>
+</div>
+<h1 class="font-hero-display text-hero-display max-w-5xl mx-auto mb-8 text-white">
+                We Build the Digital <span class="text-primary italic">Infrastructure</span> of Tomorrow.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">
+                Web Development · UI/UX Design · Business Automation · AI Agents
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+<button class="bg-primary-container text-on-primary-container px-10 py-5 rounded-full font-headline-md text-body-md font-bold glow-lime hover:scale-105 transition-all">
+                    Let's Talk
+                </button>
+<button class="border border-white/20 text-white px-10 py-5 rounded-full font-headline-md text-body-md font-bold hover:bg-white/10 transition-all">
+                    Explore Our Work
+                </button>
+</div>
+<!-- Stats Badge -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8 mt-24">
+<div class="text-left p-6 bg-white/5 backdrop-blur-sm border-l-2 border-primary">
+<div class="text-headline-md font-headline-md text-white">120+</div>
+<div class="text-label-mono font-label-mono text-on-surface-variant uppercase">Projects Delivered</div>
+</div>
+<div class="text-left p-6 bg-white/5 backdrop-blur-sm border-l-2 border-primary">
+<div class="text-headline-md font-headline-md text-white">98%</div>
+<div class="text-label-mono font-label-mono text-on-surface-variant uppercase">Client Retention</div>
+</div>
+<div class="hidden md:block text-left p-6 bg-white/5 backdrop-blur-sm border-l-2 border-primary">
+<div class="text-headline-md font-headline-md text-white">24/7</div>
+<div class="text-label-mono font-label-mono text-on-surface-variant uppercase">Systems Support</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Marquee -->
+<div class="bg-primary py-4 overflow-hidden border-y border-white/10">
+<div class="marquee flex items-center gap-12 text-on-primary font-headline-md text-headline-md font-black uppercase whitespace-nowrap">
+<span>WEB DEVELOPMENT · UI/UX DESIGN · BUSINESS AUTOMATION · AI AGENTS · DIGITAL STRATEGY · CUSTOM SOFTWARE · RAXIOR ★</span>
+<span>WEB DEVELOPMENT · UI/UX DESIGN · BUSINESS AUTOMATION · AI AGENTS · DIGITAL STRATEGY · CUSTOM SOFTWARE · RAXIOR ★</span>
+</div>
+</div>
+<!-- About Section -->
+<section class="py-section-gap max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div>
+<span class="text-primary font-label-mono text-label-mono uppercase tracking-widest mb-4 block">The Studio</span>
+<h2 class="font-headline-xl text-headline-xl text-white mb-8">
+                    We don't just build — we <span class="text-primary">engineer</span> growth.
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                    Based at the intersection of high-end aesthetics and technical precision, RAXIOR is a digital product studio that scales brands through superior engineering. We treat every pixel like a line of code, ensuring that performance is never sacrificed for beauty.
+                </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<span class="font-label-mono text-label-mono uppercase text-white tracking-widest">Innovation First approach</span>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -inset-4 bg-primary/10 blur-3xl rounded-full"></div>
+<div class="relative bg-[#1A1A1A] border border-[#3A3A3A] p-4 rounded-xl">
+<img alt="Futuristic 3D digital globe with neon green neural network lines" class="w-full aspect-square object-cover" data-alt="A high-end, futuristic 3D abstract render of a glowing digital globe or neural network, featuring intricate neon lime green (#6DBF3E) data lines and geometric structures against a deep charcoal and black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDJt-RCsHaFt2Kp4vw8h6d9veTzcYmEJUiTSlIOTQB58HqXKMWd_HJCxCo2Cns4twONHY_-BGyFpRhJLYkZEmMQ-xA5o15zQh-EHVmT4M8n2WAOHg-LIKG3nCbv6MKnLOL9BFzayCEe-LixdyFQ71JOKvECSZI6w6E30edrXb41-Ewes-F6gD5knuGZun4WbHtKEzAaAe2Kdz0GVUOlNDAafUGTFQIvgGHSyOTCBlWJK0K2fDgT5fA0gHV4Ol93iaAUh41nyTWDadP"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section (Bento) -->
+<section class="py-section-gap bg-[#0E0E0E] relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<h2 class="font-headline-lg text-headline-lg text-white mb-4">Core Competencies</h2>
+<div class="h-1 w-24 bg-primary"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="group relative bg-white/5 border-t-4 border-primary border-x border-b border-[#3A3A3A] p-10 hover:bg-white/10 transition-all duration-500 backdrop-blur-xl">
+<div class="mb-8 flex justify-between items-start">
+<span class="material-symbols-outlined text-5xl text-primary" data-icon="terminal">terminal</span>
+<span class="text-white/20 font-headline-xl text-headline-xl opacity-20">01</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Web Engineering</h3>
+<p class="text-on-surface-variant mb-8">Performance-obsessed full-stack development using Next.js, React, and serverless architectures.</p>
+<ul class="space-y-2 text-label-mono font-label-mono text-primary uppercase">
+<li>+ Headless Commerce</li>
+<li>+ Web3 Integration</li>
+<li>+ Real-time Dashboards</li>
+</ul>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-white/5 border-t-4 border-primary border-x border-b border-[#3A3A3A] p-10 hover:bg-white/10 transition-all duration-500 backdrop-blur-xl">
+<div class="mb-8 flex justify-between items-start">
+<span class="material-symbols-outlined text-5xl text-primary" data-icon="token">token</span>
+<span class="text-white/20 font-headline-xl text-headline-xl opacity-20">02</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-4">UI/UX Strategy</h3>
+<p class="text-on-surface-variant mb-8">User-centric interfaces that blend cinematic aesthetics with conversion-focused UX patterns.</p>
+<ul class="space-y-2 text-label-mono font-label-mono text-primary uppercase">
+<li>+ Design Systems</li>
+<li>+ Interactive Prototyping</li>
+<li>+ Motion Design</li>
+</ul>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-white/5 border-t-4 border-primary border-x border-b border-[#3A3A3A] p-10 hover:bg-white/10 transition-all duration-500 backdrop-blur-xl">
+<div class="mb-8 flex justify-between items-start">
+<span class="material-symbols-outlined text-5xl text-primary" data-icon="automation">automation</span>
+<span class="text-white/20 font-headline-xl text-headline-xl opacity-20">03</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Automation</h3>
+<p class="text-on-surface-variant mb-8">Eliminating friction through custom internal tools and streamlined business logic automation.</p>
+<ul class="space-y-2 text-label-mono font-label-mono text-primary uppercase">
+<li>+ CRM Integration</li>
+<li>+ Pipeline Automation</li>
+<li>+ Cloud Infrastructure</li>
+</ul>
+</div>
+<!-- Card 4 -->
+<div class="group relative bg-white/5 border-t-4 border-primary border-x border-b border-[#3A3A3A] p-10 hover:bg-white/10 transition-all duration-500 backdrop-blur-xl">
+<div class="mb-8 flex justify-between items-start">
+<span class="material-symbols-outlined text-5xl text-primary" data-icon="neurology">neurology</span>
+<span class="text-white/20 font-headline-xl text-headline-xl opacity-20">04</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-4">AI Implementation</h3>
+<p class="text-on-surface-variant mb-8">Deploying advanced LLM-powered agents and custom machine learning models into your workflow.</p>
+<ul class="space-y-2 text-label-mono font-label-mono text-primary uppercase">
+<li>+ Custom GPT Agents</li>
+<li>+ Vector Databases</li>
+<li>+ Sentiment Analysis</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="py-section-gap max-w-7xl mx-auto px-6">
+<h2 class="font-headline-lg text-headline-lg text-white text-center mb-20">Our Delivery Protocol</h2>
+<div class="relative">
+<!-- Connecting Line -->
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-dashed border-t border-dashed border-white/20 -translate-y-1/2 hidden lg:block"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="relative z-10 text-center">
+<div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-8 glow-lime">
+<span class="text-on-primary font-bold text-headline-md">01</span>
+</div>
+<h4 class="text-white font-headline-md text-body-md mb-2">Discovery</h4>
+<p class="text-on-surface-variant text-sm">Deep dive into goals and technical constraints.</p>
+</div>
+<div class="relative z-10 text-center">
+<div class="w-20 h-20 bg-[#1A1A1A] border border-[#3A3A3A] rounded-full flex items-center justify-center mx-auto mb-8">
+<span class="text-white font-bold text-headline-md">02</span>
+</div>
+<h4 class="text-white font-headline-md text-body-md mb-2">Strategy</h4>
+<p class="text-on-surface-variant text-sm">Architecting the solution and design systems.</p>
+</div>
+<div class="relative z-10 text-center">
+<div class="w-20 h-20 bg-[#1A1A1A] border border-[#3A3A3A] rounded-full flex items-center justify-center mx-auto mb-8">
+<span class="text-white font-bold text-headline-md">03</span>
+</div>
+<h4 class="text-white font-headline-md text-body-md mb-2">Build</h4>
+<p class="text-on-surface-variant text-sm">Agile engineering sprints and UI integration.</p>
+</div>
+<div class="relative z-10 text-center">
+<div class="w-20 h-20 bg-[#1A1A1A] border border-[#3A3A3A] rounded-full flex items-center justify-center mx-auto mb-8">
+<span class="text-white font-bold text-headline-md">04</span>
+</div>
+<h4 class="text-white font-headline-md text-body-md mb-2">Launch</h4>
+<p class="text-on-surface-variant text-sm">Deployment, QA, and post-launch optimization.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Work Grid -->
+<section class="py-section-gap bg-[#0A0A0A]">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="text-primary font-label-mono text-label-mono uppercase tracking-widest mb-4 block">Portfolio</span>
+<h2 class="font-headline-lg text-headline-lg text-white">Selected Works</h2>
+</div>
+<a class="text-white font-label-mono uppercase tracking-widest border-b border-primary pb-1" href="#">View All Projects</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="group relative overflow-hidden cursor-pointer">
+<div class="aspect-[16/10] bg-[#1A1A1A] mb-6 overflow-hidden">
+<img alt="Project 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="clean dark-themed web interface with neon lime accents showing financial data visualizations and complex graphs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIrl_QuX8b0GngLwgADTH6fW5JI95UnSDDWoD2PhSxJKIU26KFV6EeB9T63eTTNtZ2QnXfk-UTDBa-ulvMmUs6jFOpBfb0RE6iQhFjiHTXdpgB6aqP3O6G4ZhCmAqjMg4iwOjtmbRC31YUBXbMmbrq5VSh94IuzgtkIzwr4rCHmLdBGTYfcy9v18AgNcqIxKXTKLjL_F9fjrrrjOQJsCXyr4e7rTmulYvhCkOgi7WxFU9Q09W-9h1HKNeXvfhALW420ZJ_G5inYYh5"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Lumina Financial</h3>
+<p class="text-on-surface-variant font-label-mono uppercase text-xs">Fintech · Dashboard · Next.js</p>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="north_east">north_east</span>
+</div>
+</div>
+<div class="group relative overflow-hidden cursor-pointer md:mt-24">
+<div class="aspect-[16/10] bg-[#1A1A1A] mb-6 overflow-hidden">
+<img alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="futuristic mobile app design for smart home control with glassmorphic cards and soft glowing light effects" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIPWm4fhz-Uk9PPD4NqCYwjm7ks6K_qC8KZOPuZcTg7RfA4XM_QnSonoLzhL9zXg1KrYu4hhEdq80HdZq8b51_DD295LTWT7lGAUMvuZ9k_bAmdTw-gCT1QZkgmp5s5jnX2tQb9pNrBNxTuyUFsw20AsIHIrnjzhIudFWz-_zAHl-9OWLZWOr_oKAA6Vt3jJKqhHk50MlQaTjME3NYGUBVga72qCJkUA2cQW8O1nfme-dQglBuQa1Pa5ZDIKI2F_m31ocjMwHV-46p"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Aether OS</h3>
+<p class="text-on-surface-variant font-label-mono uppercase text-xs">UI/UX · Smart Home · Mobile</p>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="north_east">north_east</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-section-gap bg-[#0E0E0E]">
+<div class="max-w-7xl mx-auto px-6 overflow-hidden">
+<h2 class="font-headline-lg text-headline-lg text-white mb-16 text-center">Validation</h2>
+<div class="flex gap-8 overflow-x-auto pb-12 snap-x no-scrollbar">
+<div class="min-w-[400px] bg-white/5 p-12 border border-[#3A3A3A] snap-center backdrop-blur-md">
+<div class="flex gap-1 mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" data-weight="fill">star</span>
+</div>
+<p class="text-white text-lg italic mb-12">"The technical precision RAXIOR brought to our infrastructure was unmatched. They transformed our legacy system into a high-speed machine."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a CEO in a minimalist office setting with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTBBJWX1IPfxdahZt5cDjTwDmHzelZ8X0PexyQJ8QZAwRAqukGtc-j3Pu2PSHuvRL95XXb6E7z-BZBlrlgdOMyS_wt0d3DTN3kMGmQm0pv6l-sIa2SNQTpFnXeDAE8uevmPM3E1PFIEmHsYaXUBRwHTp2BiLn5TjNmR_Y2GJCxE3N9U3ECVpw9Yy_XA2f8KtlcK_yBDWmm5Zl6eV84_ROEwce6slXIScTC_fuXBCsxCZI9rFb0QQbIwPych1jSEfM96292jsmMPeTK"/>
+</div>
+<div>
+<div class="text-white font-bold">Marcus Thorne</div>
+<div class="text-on-surface-variant text-xs uppercase">CTO, Nexus Corp</div>
+</div>
+</div>
+</div>
+<!-- Additional Testimonials -->
+<div class="min-w-[400px] bg-white/5 p-12 border border-[#3A3A3A] snap-center backdrop-blur-md">
+<div class="flex gap-1 mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" data-weight="fill">star</span>
+</div>
+<p class="text-white text-lg italic mb-12">"Design that actually works. We saw a 40% increase in user engagement within the first month of the redesign."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="modern headshot of a creative director against a neutral grey studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVAPhmShtHN8b17mYGxRkzO7ooj9rKtmSoCXbY7b3DigUQKp1qk9ZNSOGDu39TFDZs9hwOF2Od76V50EC1j9_VL2K1sP6spbL5XG2UeXFdjOSO1TpTsYTSglXrzIFqfwTqYTRaJvxqIbuAgIn5VQzrdcEneCxMveVq7Pu7Kcgle7vW9MO6HVFY-vVHpa6EFOjZnAZJek1Az-BfkVkA5zBGiH1z-Z3-MZFiBdQTilXEImfatsaaLHdih6U6tzDgn_kWGemnAJOpi9Z-"/>
+</div>
+<div>
+<div class="text-white font-bold">Elena Vance</div>
+<div class="text-on-surface-variant text-xs uppercase">Founder, Studio Void</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Stack -->
+<section class="py-24 border-y border-[#1A1A1A]">
+<div class="max-w-7xl mx-auto px-6">
+<p class="text-center text-label-mono font-label-mono uppercase tracking-[0.4em] text-on-surface-variant mb-12">Engineering Stack</p>
+<div class="flex flex-wrap justify-center items-center gap-16 opacity-50">
+<span class="text-3xl font-black text-white hover:text-primary transition-colors cursor-pointer">React</span>
+<span class="text-3xl font-black text-white hover:text-primary transition-colors cursor-pointer">Next.js</span>
+<span class="text-3xl font-black text-white hover:text-primary transition-colors cursor-pointer">OpenAI</span>
+<span class="text-3xl font-black text-white hover:text-primary transition-colors cursor-pointer">PostgreSQL</span>
+<span class="text-3xl font-black text-white hover:text-primary transition-colors cursor-pointer">Tailwind</span>
+<span class="text-3xl font-black text-white hover:text-primary transition-colors cursor-pointer">Vercel</span>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="py-section-gap relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5"></div>
+<!-- Particle Field Effect via Overlay -->
+<div class="absolute inset-0 grid-mesh opacity-10"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+<img class="w-1/2 h-auto grayscale" data-alt="background brand element with subtle transparency and architectural geometric lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtvM13I7uLrlPlIzRq1Buy4tmSFucAZMZnY8BAcWdXqmq9V1Qt8ft8IttkgCxR8cjFeHjMfBY5SXPyyWkXE-Kn6gAA47DP07RcQMVCqUiIZ9zGo_9DIiTx6RJzVZoEeuYD_a3aFXKSYwo2KjAqC1lIcF3B3wQs5LWlyWg6crYOiyeJYOyPul4tZwsFGapPEpk1RpyS_GfKi9TTjMbeHUnta4GhHN9Ynf0QtYSH3PrhyMZX1l___lqYWLRVVhwMzpCBHLDqojfdWpYs"/>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+<h2 class="font-hero-display text-headline-xl text-white mb-12">Ready to build something <span class="text-primary italic">great?</span></h2>
+<p class="text-on-surface-variant text-body-lg mb-12">Join the elite brands scaling through RAXIOR’s digital engineering.</p>
+<button class="bg-primary-container text-on-primary-container px-12 py-6 rounded-full font-headline-md text-body-md font-bold glow-lime hover:scale-105 transition-all">
+                Initiate Project
+            </button>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-20 bg-slate-50 dark:bg-[#0A0A0A] border-t border-slate-200 dark:border-zinc-900">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-6">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<img alt="RAXIOR Logo" class="h-6 w-auto" data-alt="small scale high contrast brand mark for footer application" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxbnrdUWhH0ZQGNBP66kbvjd0Pc2_wJtzgUTAheLdcSXQf79UObj1xoDpBgeq6pwQtbn5KIKKzrz_RWFGV52cMNEQBYXzqDCtbMw9J-_V4RCKgrKdIAElwMirKG8OrpZhu7EsW5V6cIeJSIgb5-KnRTmNsNDc2dbHT7iD6iL7JFrhJIZnjR3v5tUWi60BLafYT0o9_D41ZZMhfSgZIVERh-XBHm7-x0nmEb0YOBnhSl0eG-BZkfhDItMIfomFyjb9zDu7OOy8Z24NF"/>
+<span class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white">RAXIOR</span>
+</div>
+<p class="font-['Space_Grotesk'] font-light text-zinc-500 text-sm leading-relaxed max-w-[240px]">
+                    Evolving digital realities through precision engineering and cinematic design.
+                </p>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Navigation</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-zinc-500 hover:text-lime-500 dark:hover:text-lime-400 transition-transform duration-300 hover:-translate-y-1 block" href="#">Services</a></li>
+<li><a class="text-slate-500 dark:text-zinc-500 hover:text-lime-500 dark:hover:text-lime-400 transition-transform duration-300 hover:-translate-y-1 block" href="#">Work</a></li>
+<li><a class="text-slate-500 dark:text-zinc-500 hover:text-lime-500 dark:hover:text-lime-400 transition-transform duration-300 hover:-translate-y-1 block" href="#">Process</a></li>
+<li><a class="text-slate-500 dark:text-zinc-500 hover:text-lime-500 dark:hover:text-lime-400 transition-transform duration-300 hover:-translate-y-1 block" href="#">Studio</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-zinc-500 hover:text-lime-500 dark:hover:text-lime-400 transition-transform duration-300 hover:-translate-y-1 block" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 dark:text-zinc-500 hover:text-lime-500 dark:hover:text-lime-400 transition-transform duration-300 hover:-translate-y-1 block" href="#">Terms of Service</a></li>
+<li><a class="text-slate-500 dark:text-zinc-500 hover:text-lime-500 dark:hover:text-lime-400 transition-transform duration-300 hover:-translate-y-1 block" href="#">Cookies</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Social</h5>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-[#3A3A3A] flex items-center justify-center text-white hover:border-primary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="public">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-[#3A3A3A] flex items-center justify-center text-white hover:border-primary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="alternate_email">alternate_email</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-[#3A3A3A] flex items-center justify-center text-white hover:border-primary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="groups">groups</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-[#1A1A1A] flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-['Space_Grotesk'] font-light text-zinc-500 text-xs uppercase tracking-widest">
+                © 2024 RAXIOR. EVOLVING DIGITAL REALITIES.
+            </span>
+<div class="flex gap-8">
+<span class="text-xs text-zinc-600 uppercase">Designed for Performance</span>
+<span class="text-xs text-zinc-600 uppercase">Built for Scale</span>
+</div>
+</div>
+</footer>
+</body></html>
