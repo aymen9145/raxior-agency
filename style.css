@@ -93,6 +93,10 @@ body {
   overflow-x: hidden;
 }
 
+@media (min-width: 1025px) {
+  body, body * { cursor: none !important; }
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -386,7 +390,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 80px;
+  padding-top: 120px;
   overflow: hidden;
 }
 .hero-mesh {
@@ -432,11 +436,13 @@ button {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 9999px;
+  margin-top: 16px;
   margin-bottom: 32px;
   backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 .hero-chip .dot {
   width: 8px; height: 8px;
@@ -477,6 +483,10 @@ button {
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(8px);
   border-left: 2px solid var(--primary);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-left: 2px solid var(--primary);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 .stat-card .stat-value {
   font-size: 32px;
@@ -496,6 +506,7 @@ button {
 .marquee-wrap {
   background: var(--primary);
   padding: 16px 0;
+  margin-top: 48px;
   overflow: hidden;
   border-top: 1px solid rgba(255,255,255,0.1);
   border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -582,13 +593,15 @@ button {
   background: var(--dark-card);
   border: 1px solid var(--border-grey);
   padding: 16px;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 .about-image-card img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
+  border-radius: 12px;
 }
 
 /* ---------- Services Bento Grid ---------- */
@@ -612,16 +625,18 @@ button {
 .service-card {
   position: relative;
   background: rgba(255,255,255,0.05);
-  border: 1px solid var(--border-grey);
-  border-top: 4px solid var(--primary);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 3px solid var(--primary);
   padding: 40px;
+  border-radius: 20px;
   backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06);
   transition: background 0.5s, transform 0.4s var(--ease-out), box-shadow 0.4s;
 }
 .service-card:hover {
   background: rgba(255,255,255,0.1);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 20px rgba(109,191,62,0.08), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 .service-card-top {
   display: flex;
@@ -764,6 +779,8 @@ button {
   overflow: hidden;
   margin-bottom: 24px;
   position: relative;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
 }
 .work-thumb img {
   width: 100%;
@@ -831,23 +848,26 @@ button {
   display: none;
 }
 .testimonial-card {
-  min-width: 400px;
-  flex-shrink: 0;
+  flex: 0 0 380px;
+  max-width: 380px;
   background: rgba(255,255,255,0.05);
-  padding: 48px;
-  border: 1px solid var(--border-grey);
+  padding: 36px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
   scroll-snap-align: center;
   backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06);
   transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
 }
 .testimonial-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 15px rgba(109,191,62,0.06);
 }
 .testimonial-stars {
   display: flex;
   gap: 4px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 .testimonial-stars .material-symbols-outlined {
   color: var(--primary);
@@ -856,10 +876,15 @@ button {
 }
 .testimonial-card blockquote {
   color: #fff;
-  font-size: 18px;
+  font-size: 14px;
   font-style: italic;
-  line-height: 1.6;
-  margin-bottom: 48px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  white-space: normal !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: block;
+  width: calc(380px - 72px); /* card width minus padding */
 }
 .testimonial-author {
   display: flex;
@@ -1052,6 +1077,7 @@ button {
   background: rgba(109,191,62,0.1);
   border: 1px solid var(--primary);
   padding: 16px 24px;
+  border-radius: 16px;
   color: var(--primary);
   font-weight: 600;
   text-align: center;
@@ -1249,10 +1275,13 @@ button {
 
 /* ---------- Responsive: Mobile (< 768px) ---------- */
 @media (max-width: 768px) {
-  .text-hero-display { font-size: 40px; }
-  .text-headline-xl  { font-size: 36px; }
-  .text-headline-lg  { font-size: 28px; }
-  .text-headline-md  { font-size: 22px; }
+  .text-hero-display { font-size: 34px; }
+  .text-headline-xl  { font-size: 32px; }
+  .text-headline-lg  { font-size: 24px; }
+  .text-headline-md  { font-size: 20px; }
+
+  .hero .subtitle { font-size: 14px; }
+  .hero-chip { margin-top: 8px; }
 
   .hero-stats {
     grid-template-columns: 1fr 1fr;
@@ -1269,8 +1298,18 @@ button {
     gap: 32px;
   }
   .testimonial-card {
-    min-width: 300px;
-    padding: 32px;
+    flex: 0 0 280px;
+    max-width: 280px;
+    padding: 24px;
+  }
+  .testimonial-card blockquote {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    width: calc(280px - 48px);
+  }
+  .testimonial-stars {
+    margin-bottom: 16px;
   }
   .tech-stack-logos {
     gap: 32px;
@@ -1286,7 +1325,14 @@ button {
     text-align: center;
   }
   .marquee-track span {
-    font-size: 20px;
+    font-size: 16px;
+  }
+  .marquee-wrap {
+    padding: 10px 0;
+    margin-top: 32px;
+  }
+  .marquee-track {
+    gap: 24px;
   }
   .work-header {
     flex-direction: column;
