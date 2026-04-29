@@ -13,8 +13,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="animations.css"/>
 </head>
 <body>
+
+<!-- Loading Screen -->
+<div class="loader-screen" id="loader">
+  <div class="loader-logo">RAXIOR</div>
+  <div class="loader-bar-track"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- Custom Cursor (desktop only) -->
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- Noise Overlay -->
+<div class="noise-overlay"></div>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="site-header">
@@ -378,7 +395,7 @@
         </p>
         <div class="contact-detail reveal delay-3">
           <span class="material-symbols-outlined">mail</span>
-          <span>contact@raxior.tech</span>
+          <span>hello@raxior.com</span>
         </div>
         <div class="contact-detail reveal delay-3">
           <span class="material-symbols-outlined">location_on</span>
@@ -473,5 +490,15 @@
 </footer>
 
 <script src="main.js"></script>
+<script>
+  // Hide loader after page load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 1800);
+  });
+  document.body.style.overflow = 'hidden';
+</script>
 </body>
 </html>
