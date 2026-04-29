@@ -93,10 +93,6 @@ body {
   overflow-x: hidden;
 }
 
-@media (min-width: 1025px) {
-  body, body * { cursor: none !important; }
-}
-
 img {
   max-width: 100%;
   height: auto;
