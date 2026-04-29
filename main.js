@@ -26,33 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   updateSmoothMouse();
 
-  // ======== CUSTOM CURSOR ========
-  if (!isMobile) {
-    const cursorDot = document.getElementById('cursor-dot');
-    const cursorRing = document.getElementById('cursor-ring');
-
-    if (cursorDot && cursorRing) {
-      function updateCursor() {
-        cursorDot.style.transform = `translate(${mouse.x}px, ${mouse.y}px)`;
-        cursorRing.style.transform = `translate(${smoothMouse.x}px, ${smoothMouse.y}px)`;
-        requestAnimationFrame(updateCursor);
-      }
-      updateCursor();
-
-      // Hover effect on interactive elements
-      document.querySelectorAll('a, button, .service-card, .work-item, .testimonial-card, .social-link, .tech-stack-logos span').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          cursorRing.classList.add('cursor-hover');
-          cursorDot.classList.add('cursor-hover');
-        });
-        el.addEventListener('mouseleave', () => {
-          cursorRing.classList.remove('cursor-hover');
-          cursorDot.classList.remove('cursor-hover');
-        });
-      });
-    }
-  }
-
   // ======== MAGNETIC BUTTONS ========
   document.querySelectorAll('.btn, .social-link, .step-circle').forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
