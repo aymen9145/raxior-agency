@@ -1,0 +1,327 @@
+/* ===================================================
+   RAXIOR — Advanced Animation Styles
+   Custom cursor, 3D tilt, ripples, orbs, split text
+   =================================================== */
+
+/* ---------- Custom Cursor ---------- */
+.cursor-dot {
+  position: fixed;
+  top: -4px; left: -4px;
+  width: 8px; height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: width 0.3s, height 0.3s, top 0.3s, left 0.3s, opacity 0.3s;
+  will-change: transform;
+}
+.cursor-ring {
+  position: fixed;
+  top: -20px; left: -20px;
+  width: 40px; height: 40px;
+  border: 1.5px solid var(--primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.5;
+  will-change: transform;
+  transition: width 0.4s cubic-bezier(0.16,1,0.3,1), height 0.4s cubic-bezier(0.16,1,0.3,1), 
+              top 0.4s cubic-bezier(0.16,1,0.3,1), left 0.4s cubic-bezier(0.16,1,0.3,1),
+              opacity 0.3s, border-color 0.3s;
+}
+.cursor-ring.cursor-hover {
+  width: 60px; height: 60px;
+  top: -30px; left: -30px;
+  opacity: 0.8;
+  border-color: var(--primary-container);
+  background: rgba(109,191,62,0.06);
+}
+.cursor-dot.cursor-hover {
+  width: 12px; height: 12px;
+  top: -6px; left: -6px;
+  opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+  .cursor-dot, .cursor-ring { display: none !important; }
+}
+
+/* ---------- Scroll Progress Bar ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-container), #a2f970);
+  z-index: 9999;
+  transform-origin: left;
+  transform: scaleX(0);
+  will-change: transform;
+  box-shadow: 0 0 10px rgba(109,191,62,0.5);
+}
+
+/* ---------- Card Internal Glow (follows mouse) ---------- */
+.service-card::before,
+.testimonial-card::before,
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    400px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(109,191,62,0.12) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 0;
+}
+.service-card:hover::before,
+.testimonial-card:hover::before,
+.stat-card:hover::before {
+  opacity: 1;
+}
+.service-card > *,
+.testimonial-card > *,
+.stat-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Border Glow Animation ---------- */
+.service-card.border-glow-animate {
+  animation: borderGlow 3s ease-in-out;
+}
+@keyframes borderGlow {
+  0%   { border-color: var(--border-grey); box-shadow: none; }
+  30%  { border-color: var(--primary); box-shadow: 0 0 20px rgba(109,191,62,0.15), inset 0 0 20px rgba(109,191,62,0.05); }
+  100% { border-color: var(--border-grey); box-shadow: none; }
+}
+
+/* ---------- Split Text Animation ---------- */
+.split-text .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px) rotateX(-40deg);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.split-text.animate .char {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+
+/* ---------- Button Ripple ---------- */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  width: 0; height: 0;
+  transform: translate(-50%, -50%);
+  animation: rippleExpand 0.8s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes rippleExpand {
+  0%   { width: 0; height: 0; opacity: 0.6; }
+  100% { width: 400px; height: 400px; opacity: 0; }
+}
+
+/* ---------- Floating Orbs ---------- */
+@keyframes floatOrb {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(30px, -40px) scale(1.1); }
+  66%  { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(15px, -15px) scale(1.05); }
+}
+
+/* ---------- Enhanced Service Card Hover ---------- */
+.service-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+  transition: width 0.6s cubic-bezier(0.16,1,0.3,1);
+  border-radius: 0 0 20px 20px;
+}
+.service-card:hover::after {
+  width: 100%;
+}
+
+/* ---------- Testimonial Card Enhanced ---------- */
+.testimonial-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- Stat Card Enhanced ---------- */
+.stat-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+}
+.stat-card:hover {
+  box-shadow: 0 0 30px rgba(109,191,62,0.1);
+}
+
+/* ---------- Work Item Enhanced ---------- */
+.work-thumb img {
+  will-change: transform;
+}
+.work-thumb::after {
+  content: 'View Project →';
+  position: absolute;
+  bottom: 20px; left: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s, transform 0.4s;
+  z-index: 5;
+}
+.work-item:hover .work-thumb::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Section Visible Transition ---------- */
+.section-visible {
+  /* subtle zoom in */
+}
+
+/* ---------- Mobile Nav Enhanced ---------- */
+.mobile-nav a {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s;
+}
+.mobile-nav.open a {
+  opacity: 1;
+  transform: translateY(0);
+}
+.mobile-nav.open a:nth-child(1) { transition-delay: 0.1s; }
+.mobile-nav.open a:nth-child(2) { transition-delay: 0.15s; }
+.mobile-nav.open a:nth-child(3) { transition-delay: 0.2s; }
+.mobile-nav.open a:nth-child(4) { transition-delay: 0.25s; }
+.mobile-nav.open a:nth-child(5) { transition-delay: 0.3s; }
+
+/* ---------- Enhanced Glow Pulse on Hero ---------- */
+.hero-glow {
+  animation: glowPulse 6s ease-in-out infinite alternate;
+}
+@keyframes glowPulse {
+  0%   { opacity: 0.15; filter: blur(100px); }
+  50%  { opacity: 0.25; filter: blur(140px); }
+  100% { opacity: 0.15; filter: blur(100px); }
+}
+
+/* ---------- Tech Stack Scramble ---------- */
+.tech-stack-logos span {
+  font-family: 'Space Grotesk', monospace;
+  transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+}
+.tech-stack-logos span:hover {
+  text-shadow: 0 0 20px rgba(109,191,62,0.5);
+}
+
+/* ---------- Form Focus Glow ---------- */
+.form-group input:focus,
+.form-group textarea:focus {
+  box-shadow: 0 4px 20px rgba(109,191,62,0.1);
+}
+
+/* ---------- Social Link Spin ---------- */
+.social-link:hover .material-symbols-outlined {
+  animation: iconSpin 0.5s ease;
+}
+@keyframes iconSpin {
+  0%   { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* ---------- Marquee Hover Slow ---------- */
+.marquee-track {
+  transition: animation-duration 0.5s;
+}
+.marquee-wrap:hover .marquee-track {
+  animation-duration: 40s;
+}
+
+/* ---------- Loading Screen ---------- */
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  background: #0A0A0A;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s;
+}
+.loader-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.05em;
+  margin-bottom: 32px;
+}
+.loader-bar-track {
+  width: 200px;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.loader-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-container));
+  border-radius: 2px;
+  animation: loaderFill 1.5s ease forwards;
+  box-shadow: 0 0 10px rgba(109,191,62,0.5);
+}
+@keyframes loaderFill {
+  0%   { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* ---------- Noise Texture Overlay ---------- */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
