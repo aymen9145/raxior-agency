@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RAXIOR | Digital Engineering Studio</title>
+  <title>RAXIOR | Digital Development Studio</title>
   <meta name="description" content="RAXIOR is a digital product studio building future-ready web systems, UI/UX design, business automation, and AI-powered solutions."/>
-  <meta property="og:title" content="RAXIOR | Digital Engineering Studio"/>
+  <meta property="og:title" content="RAXIOR | Digital Development Studio"/>
   <meta property="og:description" content="We build the digital infrastructure of tomorrow. Web Development, UI/UX Design, Business Automation, AI Agents."/>
   <meta property="og:type" content="website"/>
   <meta name="theme-color" content="#6DBF3E"/>
@@ -22,13 +22,6 @@
   <div class="loader-logo">RAXIOR</div>
   <div class="loader-bar-track"><div class="loader-bar-fill"></div></div>
 </div>
-
-<!-- Custom Cursor (desktop only) -->
-<div class="cursor-dot" id="cursor-dot"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
-
-<!-- Scroll Progress -->
-<div class="scroll-progress" id="scroll-progress"></div>
 
 <!-- Noise Overlay -->
 <div class="noise-overlay"></div>
@@ -120,10 +113,10 @@
       <div class="about-text">
         <span class="text-label-mono text-primary about-label tracking-wide reveal">The Studio</span>
         <h2 class="text-headline-xl reveal delay-1">
-          We don't just build — we <span class="text-primary">engineer</span> growth.
+          We don't just build — we <span class="text-primary">develop</span> growth.
         </h2>
         <p class="text-body-lg reveal delay-2">
-          Based at the intersection of high-end aesthetics and technical precision, RAXIOR is a digital product studio that scales brands through superior engineering. We treat every pixel like a line of code, ensuring that performance is never sacrificed for beauty.
+          Based at the intersection of high-end aesthetics and technical precision, RAXIOR is a digital product studio that scales brands through superior development. We treat every pixel like a line of code, ensuring that performance is never sacrificed for beauty.
         </p>
         <div class="about-badge reveal delay-3">
           <div class="icon-circle">
@@ -156,7 +149,7 @@
           <span class="material-symbols-outlined">terminal</span>
           <span class="card-number">01</span>
         </div>
-        <h3>Web Engineering</h3>
+        <h3>Web Development</h3>
         <p>Performance-obsessed full-stack development using Next.js, React, and serverless architectures.</p>
         <ul>
           <li>+ Headless Commerce</li>
@@ -231,7 +224,7 @@
       <div class="process-step reveal delay-3">
         <div class="step-circle inactive">03</div>
         <h4>Build</h4>
-        <p>Agile engineering sprints and UI integration.</p>
+        <p>Agile development sprints and UI integration.</p>
       </div>
       <div class="process-step reveal delay-4">
         <div class="step-circle inactive">04</div>
@@ -357,7 +350,7 @@
 <!-- ============ TECH STACK ============ -->
 <section class="tech-stack">
   <div class="container">
-    <p class="text-label-mono tracking-wide tech-stack-label reveal">Engineering Stack</p>
+    <p class="text-label-mono tracking-wide tech-stack-label reveal">Development Stack</p>
     <div class="tech-stack-logos reveal delay-1">
       <span>React</span>
       <span>Next.js</span>
@@ -378,8 +371,8 @@
   </div>
   <div class="cta-content">
     <h2 class="text-headline-xl reveal">Ready to build something <span class="text-primary italic">great?</span></h2>
-    <p class="text-body-lg text-muted reveal delay-1">Join the elite brands scaling through RAXIOR's digital engineering.</p>
-    <a href="#contact" class="btn btn-primary reveal delay-2">Initiate Project</a>
+    <p class="text-body-lg text-muted reveal delay-1">Join the elite brands scaling through RAXIOR's digital development.</p>
+    <a href="mailto:contact@raxior.tech" class="btn btn-primary reveal delay-2">Initiate Project</a>
   </div>
 </section>
 
@@ -391,11 +384,11 @@
         <span class="text-label-mono text-primary tracking-wide reveal" style="display:block;margin-bottom:16px;">Get in Touch</span>
         <h2 class="text-headline-lg reveal delay-1">Let's build your next project.</h2>
         <p class="text-body-lg text-muted reveal delay-2">
-          Whether you need a full digital product, an AI-powered solution, or a brand-new website — we're ready to engineer it.
+          Whether you need a full digital product, an AI-powered solution, or a brand-new website — we're ready to develop it.
         </p>
         <div class="contact-detail reveal delay-3">
           <span class="material-symbols-outlined">mail</span>
-          <span>hello@raxior.com</span>
+          <a href="mailto:contact@raxior.tech" style="color:var(--primary);text-decoration:none;font-weight:600;">contact@raxior.tech</a>
         </div>
         <div class="contact-detail reveal delay-3">
           <span class="material-symbols-outlined">location_on</span>
@@ -405,29 +398,21 @@
           <span class="material-symbols-outlined">schedule</span>
           <span>Response within 24 hours</span>
         </div>
+        <a href="mailto:contact@raxior.tech" class="btn btn-primary reveal delay-4" style="margin-top:40px;display:inline-flex;align-items:center;gap:10px;">
+          <span class="material-symbols-outlined" style="font-size:20px;">mail</span>
+          Send Us an Email
+        </a>
       </div>
-      <div class="reveal-right delay-2">
-        <form class="contact-form" id="contact-form">
-          <div class="form-group">
-            <label for="contact-name">Your Name</label>
-            <input type="text" id="contact-name" placeholder="John Doe" autocomplete="name"/>
-            <span class="form-error"></span>
-          </div>
-          <div class="form-group">
-            <label for="contact-email">Email Address</label>
-            <input type="email" id="contact-email" placeholder="john@company.com" autocomplete="email"/>
-            <span class="form-error"></span>
-          </div>
-          <div class="form-group">
-            <label for="contact-message">Your Message</label>
-            <textarea id="contact-message" placeholder="Tell us about your project..."></textarea>
-            <span class="form-error"></span>
-          </div>
-          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message</button>
-        </form>
-        <div class="form-success" id="form-success">
-          ✓ Message sent successfully! We'll get back to you within 24 hours.
-        </div>
+      <div class="reveal-right delay-2" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+        <div style="font-size:80px;margin-bottom:24px;">📧</div>
+        <h3 class="text-headline-md" style="color:#fff;margin-bottom:12px;">Drop us a line</h3>
+        <p class="text-body-lg text-muted" style="max-width:380px;margin-bottom:32px;">
+          Click below to open your email client and start the conversation directly.
+        </p>
+        <a href="mailto:contact@raxior.tech" class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:10px;">
+          contact@raxior.tech
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_outward</span>
+        </a>
       </div>
     </div>
   </div>
@@ -443,7 +428,7 @@
           <span>RAXIOR</span>
         </div>
         <p class="footer-desc">
-          Evolving digital realities through precision engineering and cinematic design.
+          Evolving digital realities through precision development and cinematic design.
         </p>
       </div>
       <div>
