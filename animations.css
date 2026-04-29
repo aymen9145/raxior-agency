@@ -1,65 +1,7 @@
 /* ===================================================
    RAXIOR — Advanced Animation Styles
-   Custom cursor, 3D tilt, ripples, orbs, split text
+   3D tilt, ripples, orbs, split text
    =================================================== */
-
-/* ---------- Custom Cursor ---------- */
-.cursor-dot {
-  position: fixed;
-  top: -4px; left: -4px;
-  width: 8px; height: 8px;
-  background: var(--primary);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: width 0.3s, height 0.3s, top 0.3s, left 0.3s, opacity 0.3s;
-  will-change: transform;
-}
-.cursor-ring {
-  position: fixed;
-  top: -20px; left: -20px;
-  width: 40px; height: 40px;
-  border: 1.5px solid var(--primary);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  opacity: 0.5;
-  will-change: transform;
-  transition: width 0.4s cubic-bezier(0.16,1,0.3,1), height 0.4s cubic-bezier(0.16,1,0.3,1), 
-              top 0.4s cubic-bezier(0.16,1,0.3,1), left 0.4s cubic-bezier(0.16,1,0.3,1),
-              opacity 0.3s, border-color 0.3s;
-}
-.cursor-ring.cursor-hover {
-  width: 60px; height: 60px;
-  top: -30px; left: -30px;
-  opacity: 0.8;
-  border-color: var(--primary-container);
-  background: rgba(109,191,62,0.06);
-}
-.cursor-dot.cursor-hover {
-  width: 12px; height: 12px;
-  top: -6px; left: -6px;
-  opacity: 0.8;
-}
-
-@media (max-width: 1024px) {
-  .cursor-dot, .cursor-ring { display: none !important; }
-}
-
-/* ---------- Scroll Progress Bar ---------- */
-.scroll-progress {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary), var(--primary-container), #a2f970);
-  z-index: 9999;
-  transform-origin: left;
-  transform: scaleX(0);
-  will-change: transform;
-  box-shadow: 0 0 10px rgba(109,191,62,0.5);
-}
 
 /* ---------- Card Internal Glow (follows mouse) ---------- */
 .service-card::before,
